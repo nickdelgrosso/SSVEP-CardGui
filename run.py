@@ -1,4 +1,4 @@
-from psychopy import visual, core, data
+from psychopy import visual, core, data, clock
 from psychopy.hardware.keyboard import Keyboard
 
 from blinking_image import BlinkingImage
@@ -9,25 +9,37 @@ win = visual.Window(size=(1024, 768), fullscr=True, screen=0, winType='pyglet', 
 
 trials = data.TrialHandler(
     trialList=[
-        {'freqLeft': 5, 'freqMiddle': 10, 'freqRight': 20}
+        # {'freqLeft': 3, 'freqMiddle': 5, 'freqRight': 8},
+        {'freqLeft': 5, 'freqMiddle': 10, 'freqRight': 15},
     ],
-    nReps=1
+    nReps=5,
+    extraInfo={'duration': 2},
 )
 
 images = [
-    BlinkingImage(win=win, blink_frequency=trials.trialList[0]['freqLeft'], image='imgs/card5.png', pos=(-0.5, 0), size=(0.25, 0.25)),
-    BlinkingImage(win=win, blink_frequency=trials.trialList[0]['freqMiddle'], image='imgs/card5.png', pos=(0.0, 0), size=(0.25, 0.25)),
-    BlinkingImage(win=win, blink_frequency=trials.trialList[0]['freqRight'], image='imgs/card5.png', pos=(0.5, 0), size=(0.25, 0.25)),
+    BlinkingImage(win=win, image='imgs/card5.png', pos=(-0.5, 0), size=(0.25, 0.25)),
+    BlinkingImage(win=win, image='imgs/card5.png', pos=(0.0, 0), size=(0.25, 0.25)),
+    BlinkingImage(win=win, image='imgs/card5.png', pos=(0.5, 0), size=(0.25, 0.25)),
 ]
 
-while True:
+for trial in trials:
+    print("Starting Trial", trials.thisN)
     
-    for image in images:
-        image.update()
-    if keyboard.getKeys(keyList=["escape"]):  # escape key to quit
-        core.quit()
+    trial_clock = core.MonotonicClock()
+    images[0].blink_frequency = trial['freqLeft']
+    images[1].blink_frequency = trial['freqMiddle']
+    images[2].blink_frequency = trial['freqRight']
     
-    win.flip()  # refresh the screen
+    while trial_clock.getTime() < trials.extraInfo['duration']:
+        for image in images:
+            image.update_draw()
+            image.draw()
+        win.flip()  # refresh the screen
+        
+        if keyboard.getKeys(keyList=["escape"]):  # escape key to quit
+            core.quit()
+    
+        
     
 
 # make sure everything is closed down
