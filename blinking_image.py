@@ -23,7 +23,7 @@ class BlinkingImage:
         if time_to_flip <= 0:
             self.clock.reset()
             self.clock.add(time_to_flip)
-            self.image.setOpacity(not self.image.opacity)
+            self.image.opacity = not self.image.opacity
             
     def draw(self):
         self.image.draw()
