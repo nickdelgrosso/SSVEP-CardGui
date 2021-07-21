@@ -11,7 +11,7 @@ win = visual.Window(size=(1024, 768), fullscr=True, screen=0, winType='pyglet', 
 trials = data.TrialHandler(
     trialList=[
         # {'freqLeft': 3, 'freqMiddle': 5, 'freqRight': 8},
-        {'freqLeft': 2, 'freqMiddle': 5, 'freqRight': 10},
+        {'freqLeft': 4.3, 'freqMiddle': 6, 'freqRight': 7.5},
     ],
     nReps=1,
     extraInfo={'duration': 20},

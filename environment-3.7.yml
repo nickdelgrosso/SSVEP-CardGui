@@ -1,0 +1,66 @@
+name: psychopy
+channels:
+- conda-forge
+- defaults
+dependencies:
+- python=3.7
+- astunparse
+- backports
+- bzip2
+- cffi
+- codecov
+- coveralls
+- ffmpeg
+- freetype
+- future
+- gevent
+- gitpython
+- greenlet
+- hdf5
+- json_tricks
+- lxml
+- matplotlib
+- moviepy
+- msgpack-python
+- numexpr
+- numpy
+- opencv
+- openpyxl
+- pandas
+- pillow
+- pip
+- pyopengl
+- pyosf
+- pyqt
+- pyserial
+- pytest
+- pytest-cov
+- python-bidi
+- pyyaml
+- pyzmq
+- requests
+- scipy
+- setuptools
+- sip
+- six
+- pytables
+- urllib3
+- wheel
+- x264
+- xlrd
+- xz
+- yaml
+- lzo
+- pytables
+- wxpython
+- zlib
+- pip:
+  - arabic_reshaper
+  - https://github.com/DiffSK/configobj/archive/master.zip
+  - freetype-py
+  - pygame
+  - pyglet
+  - pyparallel
+  - python-gitlab
+  - sounddevice
+  - soundfile
