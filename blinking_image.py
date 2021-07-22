@@ -17,14 +17,9 @@ class BlinkingImage:
         self._blink_frequency = value
         self.clock.reset(.5 / value)
 
-    def update_draw(self):
-        # Turn on or off automatically
+    def draw(self):
         time_to_flip = -self.win.getFutureFlipTime(clock=self.clock)
         if time_to_flip <= 0:
             self.clock.reset()
-            self.clock.add(time_to_flip)
-            self.image.opacity = not self.image.opacity
-            
-    def draw(self):
-        self.image.draw()
+            self.image.setAutoDraw(not self.image.autoDraw)
     
