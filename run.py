@@ -41,7 +41,7 @@ for trial in trials:
     while trial_clock.getTime() < trials.extraInfo['duration']:
         for image in images:
             image.update_draw()
-            image.draw()
+            # image.draw()
         win.flip()  # refresh the screen
         
         if keyboard.getKeys(keyList=["escape"]):  # escape key to quit
