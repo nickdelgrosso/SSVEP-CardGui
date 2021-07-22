@@ -13,7 +13,8 @@ title = visual.TextStim(win, text="Pick a Card!", pos = (0, 0.25))
 trials = data.TrialHandler(
     trialList=[
         # {'freqLeft': 3, 'freqMiddle': 5, 'freqRight': 8},
-        {'freqLeft': 7.5, 'freqMiddle': 4.3, 'freqRight': 6.66},
+        # {'freqLeft': 7.5, 'freqMiddle': 4.3, 'freqRight': 6},
+        {'freqLeft': 6, 'freqMiddle': 6, 'freqRight': 6},
     ],
     nReps=1,
     extraInfo={'duration': 40},
