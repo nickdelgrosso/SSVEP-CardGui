@@ -16,7 +16,7 @@ trials = data.TrialHandler(
         {'freqLeft': 7.5, 'freqMiddle': 4.3, 'freqRight': 6.66},
     ],
     nReps=1,
-    extraInfo={'duration': 20},
+    extraInfo={'duration': 40},
 )
 
 # experiment = data.ExperimentHandler(
@@ -24,7 +24,7 @@ trials = data.TrialHandler(
 #     version="0.1",
 #     dataFileName="myrun"
 # )
-logger = logging.LogFile(f="stimlog.txt", level=logging.INFO, filemode='w')
+logger = logging.LogFile(f="stimlog.txt", level=logging.EXP, filemode='w')
 
 images = [
     BlinkingImage(win=win, image='imgs/card2.png', pos=(-0.5, -0.20), size=(0.25, 0.341), name="leftCard"),
@@ -42,9 +42,8 @@ for trial in trials:
     
     while trial_clock.getTime() < trials.extraInfo['duration']:
         for image in images:
-            image.update_draw()
             image.draw()
-        title.draw()
+            
         win.flip()  # refresh the screen
         
         if keyboard.getKeys(keyList=["escape"]):  # escape key to quit
